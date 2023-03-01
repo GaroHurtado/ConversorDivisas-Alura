@@ -16,7 +16,7 @@ Muchas gracias por usar mi App :D.
 Dudas, sugerencias y contacto:
 - https://www.linkedin.com/in/ehurtadoitmi/ <--- linledin.
 - https://twitter.com/cheemsTraduce <--- Twitter.
-- garo.dev@gmail.com <--- Email.
+- dev.garohurtado@gmail.com <--- Email.
 
 
 ![image](https://user-images.githubusercontent.com/119134636/222220951-d2bdd4fc-e963-4ce3-be30-7c3bbdac94cf.png)
