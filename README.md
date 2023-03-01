@@ -1,4 +1,7 @@
 # ConversorDivisas-Alura
+![image](https://user-images.githubusercontent.com/119134636/222220951-d2bdd4fc-e963-4ce3-be30-7c3bbdac94cf.png)
+
+
 Hola, esta App es desarrollada como parte de los desafios que Alura Latam nos proporciona
 Para practicar lo aprendido y como parte de nuestro portafolio.
 
@@ -19,5 +22,5 @@ Dudas, sugerencias y contacto:
 - dev.garohurtado@gmail.com <--- Email.
 
 
-![image](https://user-images.githubusercontent.com/119134636/222220951-d2bdd4fc-e963-4ce3-be30-7c3bbdac94cf.png)
+
 
