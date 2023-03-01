@@ -64,7 +64,7 @@ public class prueba extends JFrame implements Conversor{
 		setBackground(new Color(255, 255, 255));
 		setTitle("Conversor Divisas - Alura");
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\Desktop\\Material cursos ONE Oracle\\DESAFIOS\\Conversor de moneda\\ConversorMoneda\\imagenes\\Vector.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\Desktop\\Material cursos ONE Oracle\\DESAFIOS\\Conversor de moneda\\Vector.png"));
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
