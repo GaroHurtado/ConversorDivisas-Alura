@@ -1,0 +1,10 @@
+import java.awt.Choice;
+
+public class moneda1 {
+	public static void main(String[] args) {
+		Choice choice = new Choice();
+		choice.setBounds(161, 120, 166, 20);
+		
+	}
+	
+}

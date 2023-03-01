@@ -1,0 +1,4 @@
+
+public enum nombresMonedas {
+	Peso_Mx = "Peso_mx", Dolar_Us,Euro_Eur,Libra_Gbp,Yen_Jpy,Won_Krw;
+}

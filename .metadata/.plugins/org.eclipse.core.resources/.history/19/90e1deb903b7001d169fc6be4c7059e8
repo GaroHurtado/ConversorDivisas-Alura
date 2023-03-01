@@ -1,0 +1,153 @@
+	import java.awt.GridBagLayout;
+	import javax.swing.JFrame;
+	import javax.swing.JLabel;
+	import javax.swing.JPanel;
+	import javax.swing.JTextArea;
+import java.awt.GridBagConstraints;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Window.Type;
+import java.awt.Toolkit;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.DropMode;
+import javax.swing.ImageIcon;
+import javax.swing.border.BevelBorder;
+import java.awt.Cursor;
+public class Prueba{
+
+	private static String itemSeleccionado = "";
+	private static String itemSeleccionado1 = "";
+	static String entrada ;
+	private static JTextField cantidad;
+	
+	  @SuppressWarnings({ "unchecked", "rawtypes" })
+	public static void main(String[] args){
+
+	   JFrame miJFrame = new JFrame("Conversor de monedas - Alura" );
+	   miJFrame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\Desktop\\cheems-traductor\\imagenes\\gitlogo-removebg-preview.png"));
+	   miJFrame.setAlwaysOnTop(true);
+	   miJFrame.setType(Type.POPUP);
+	   miJFrame.setResizable(false);
+	   miJFrame.setBackground(new Color(211, 211, 211));
+	   
+	    miJFrame.setSize(940,480);
+	    miJFrame.getContentPane().setLayout(null);
+
+	    JPanel miJPanel = new JPanel();
+	    miJPanel.setBorder(null);
+	    miJPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+	    miJPanel.setBackground(new Color(155, 177, 114));
+	    miJPanel.setLocation(0, 0);
+
+	    miJPanel.setSize(924,441);
+
+
+	    JLabel miJLabel = new JLabel();
+	    miJLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	    miJLabel.setVerticalAlignment(SwingConstants.TOP);
+	    miJLabel.setFont(new Font("Consolas", Font.BOLD, 18));
+	    miJLabel.setBounds(10, 92, 235, 23);
+
+	    miJLabel.setText("Cantidad a convertir:");
+	    JTextArea textSalida = new JTextArea(5,20);
+	    textSalida.setText("");
+	    textSalida.setBackground(new Color(211, 210, 207));
+	    textSalida.setBounds(293, 115, 358, 128);
+	    miJPanel.setLayout(null);
+	    miJPanel.add(miJLabel);	    
+	    miJPanel.add(textSalida);
+
+
+	    miJFrame.getContentPane().add(miJPanel);
+	    
+	   
+	    
+	    
+	    JComboBox selectorMoneda = new JComboBox();
+	    selectorMoneda.setBounds(37, 174, 208, 23);
+	    miJPanel.add(selectorMoneda);
+	    selectorMoneda.addItem("Selecciona Moneda");
+	    selectorMoneda.addItem("Peso MX");   
+	    
+	    JComboBox selectorMoneda1 = new JComboBox();
+	    selectorMoneda1.setBounds(37, 228, 208, 23);
+	    miJPanel.add(selectorMoneda1);
+	    selectorMoneda1.addItem("Selecciona Moneda");
+	    selectorMoneda1.addItem("Dolar US");
+	    
+	
+	    cantidad = new JTextField();
+	    cantidad.setBackground(new Color(192, 192, 192));
+	    cantidad.setHorizontalAlignment(SwingConstants.CENTER);
+	    cantidad.setDropMode(DropMode.ON);
+	    cantidad.setFont(new Font("Tahoma", Font.PLAIN, 18));
+	    cantidad.setBounds(37, 115, 208, 29);
+	    miJPanel.add(cantidad);
+	    cantidad.setColumns(10);
+	    
+	    JLabel lblDe = new JLabel();
+	    lblDe.setVerticalAlignment(SwingConstants.TOP);
+	    lblDe.setText("De:");
+	    lblDe.setHorizontalAlignment(SwingConstants.CENTER);
+	    lblDe.setFont(new Font("Consolas", Font.BOLD, 18));
+	    lblDe.setBounds(83, 155, 100, 23);
+	    miJPanel.add(lblDe);
+	    
+	    
+	    
+	    JLabel lblA = new JLabel();
+	    lblA.setVerticalAlignment(SwingConstants.TOP);
+	    lblA.setText("A:");
+	    lblA.setHorizontalAlignment(SwingConstants.CENTER);
+	    lblA.setFont(new Font("Consolas", Font.BOLD, 18));
+	    lblA.setBounds(83, 214, 100, 23);
+	    miJPanel.add(lblA);
+	    
+	    
+	    
+	    miJFrame.setVisible(true);
+	    
+	   
+	
+	    
+	    
+	    selectorMoneda.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		itemSeleccionado = (String) selectorMoneda.getSelectedItem();
+	    		}
+	    	}
+	    );
+	    selectorMoneda1.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		itemSeleccionado = (String) selectorMoneda.getSelectedItem();
+	    		}
+	    	}
+	    );
+	    
+	    
+	    JButton convertirBoton = new JButton("Convertir");
+	    convertirBoton.setFont(new Font("Consolas", Font.BOLD, 18));
+	    convertirBoton.addActionListener(new ActionListener() {
+	    	int valor = Integer.parseInt(cantidad.getText());
+	    	public void actionPerformed(ActionEvent e) {
+	    		if("Peso MX" == itemSeleccionado && itemSeleccionado1 == "Dolar US" ) {
+	    			String conversion = Integer.toString(valor*20);
+	    			textSalida.setText("prueba");
+	    	}
+	    	}
+	    });
+	    convertirBoton.setBounds(121, 358, 702, 29);
+	    miJPanel.add(convertirBoton);
+	   
+
+	  }
+
+	  
+	
+	}
+

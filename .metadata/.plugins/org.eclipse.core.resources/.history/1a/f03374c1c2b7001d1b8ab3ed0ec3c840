@@ -1,0 +1,330 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import java.awt.event.InputMethodListener;
+import java.awt.event.InputMethodEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+
+@SuppressWarnings("serial")
+public class prueba extends JFrame implements Conversor{
+	static String moneda;
+	static String moneda1;
+	double valor = 0;
+	String cambioValor  ;
+	public String entrdaUsuario;
+	private JPanel contentPane;
+	private JTextField Salida;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					prueba frame = new prueba();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	@SuppressWarnings("unchecked")
+	public prueba() {
+		
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		JButton convertir = new JButton("New button");
+		convertir.setBounds(41, 227, 372, 23);
+		contentPane.add(convertir);
+		
+		Salida = new JTextField();
+		Salida.setBounds(41, 138, 372, 78);
+		contentPane.add(Salida);
+		Salida.setColumns(10);
+		
+		JComboBox De = new JComboBox();
+		De.setBounds(41, 87, 153, 22);
+		contentPane.add(De);
+		De.addItem("Selecciona Moneda");
+		De.addItem("Peso_Mx");
+		De.addItem("Dolar_Us");
+		De.addItem("Euro_Eur");
+		De.addItem("Libra_Gbp");
+		De.addItem("Yen_Jpy");
+		De.addItem("Won_Krw");
+		
+		JComboBox A = new JComboBox();
+		A.setBounds(260, 87, 153, 22);
+		contentPane.add(A);
+		A.addItem("Selecciona Moneda");
+		A.addItem("Peso_Mx");
+		A.addItem("Dolar_Us");
+		A.addItem("Euro_Eur");
+		A.addItem("Libra_Gbp");
+		A.addItem("Yen_Jpy");
+		A.addItem("Won_Krw");
+		
+		
+		JTextArea entrada = new JTextArea();
+		
+	
+		
+		entrada.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				entrada.setText("");
+			}
+		});
+		
+		entrada.setBounds(41, 23, 372, 22);
+		contentPane.add(entrada);
+		entrada.setText("Coloca la cantidad a convertir aqui");
+		
+		
+		
+		De.addActionListener(new ActionListener() {
+			public  void actionPerformed(ActionEvent e) {
+				moneda = (String) De.getSelectedItem();
+				Salida.setText("");
+				entrdaUsuario = entrada.getText();
+			}
+			
+		});
+	
+		A.addActionListener(new ActionListener() {
+			public  void actionPerformed(ActionEvent e) {
+				moneda1 = (String) A.getSelectedItem();
+				Salida.setText("");
+				entrdaUsuario = entrada.getText();
+			}
+			
+		});
+		
+		contentPane.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				entrdaUsuario = entrada.getText();
+			}
+		});	
+		
+		convertir.addActionListener(new ActionListener() {
+			public  void actionPerformed(ActionEvent e) {
+					Salida.setText(convertirDe());
+			}
+			
+		});
+		
+	}
+
+	@Override
+	public String convertirDe() {
+		
+		if(this.moneda == this.moneda1 ) {
+			conversorException();
+		}
+		else if (this.moneda == "Peso_Mx") {
+			convertirPeso();
+		}
+		else if (this.moneda == "Dolar_Us") {
+			convertirDollar();
+		}
+		else if (this.moneda == "Euro_Eur") {
+			convertirEuro()
+		}
+		else if (this.moneda == "Libra_Gbp") {
+			convertirLibras();
+		}
+		else if (this.moneda == "Yen_Jpy") {
+			convertirYen();
+		}
+		else if (this.moneda == "Won_Krw") {
+			convertirWon();
+		}
+		return (String.valueOf(valor));
+		
+	}
+
+
+	@Override
+	public void conversorException() {
+		JOptionPane.showMessageDialog(null, "Moendas similares");
+		JOptionPane.showMessageDialog(null, "Porfavor Seleccione Monedas Diferentes");
+	}
+
+	@Override
+	public String convertirPeso() {
+		if ((this.moneda == "Peso_Mx") &&  (this.moneda1 == "Dolar_Us")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.055);
+		}
+		else if ((this.moneda == "Peso_Mx") &&  (this.moneda1 == "Euro_Eur")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.052);
+		}
+		else if ((this.moneda == "Peso_Mx") &&  (this.moneda1 == "Libra_Gbp")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.045);
+		}
+		else if ((this.moneda == "Peso_Mx") &&  (this.moneda1 == "Yen_Jpy")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *7.44);
+		}
+		else if ((this.moneda == "Peso_Mx") &&  (this.moneda1 == "Won_Krw")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *72.30);
+		}
+		return (String.valueOf(valor));
+	}
+
+	@Override
+	public String convertirDollar() {
+		if ((this.moneda == "Dolar_Us") &&  (this.moneda1 == "Peso_Mx")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor * 18.30);
+		}
+		else if ((this.moneda == "Dolar_Us") &&  (this.moneda1 == "Euro_Eur")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.95);
+		}
+		else if ((this.moneda == "Dolar_Us") &&  (this.moneda1 == "Libra_Gbp")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.83);
+		}
+		else if ((this.moneda == "Dolar_Us") &&  (this.moneda1 == "Yen_Jpy")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *136.27);
+		}
+		else if ((this.moneda == "Dolar_Us") &&  (this.moneda1 == "Won_Krw")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *1322.0);
+		}
+		return (String.valueOf(valor));
+		}
+
+	@Override
+	public String convertirEuro() {
+		if ((this.moneda == "Euro_Eur") &&  (this.moneda1 == "Peso_Mx")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor * 19.36);
+		}
+		else if ((this.moneda == "Euro_Eur") &&  (this.moneda1 == "Dolar_Us")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *1.06);
+		}
+		else if ((this.moneda == "Euro_Eur") &&  (this.moneda1 == "Libra_Gbp")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.88);
+		}
+		else if ((this.moneda == "Euro_Eur") &&  (this.moneda1 == "Yen_Jpy")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *144.15);
+		}
+		else if ((this.moneda == "Euro_Eur") &&  (this.moneda1 == "Won_Krw")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *1398.50);
+		}
+		return (String.valueOf(valor));
+		}
+	
+	@Override
+	public String convertirLibras() {
+		if ((this.moneda == "Libra_Gbp") &&  (this.moneda1 == "Peso_Mx")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor * 22.03);
+		}
+		else if ((this.moneda == "Libra_Gbp") &&  (this.moneda1 == "Dolar_Us")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *1.20);
+		}
+		else if ((this.moneda == "Libra_Gbp") &&  (this.moneda1 == "Euro_Eur")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *1.14);
+		}
+		else if ((this.moneda == "Libra_Gbp") &&  (this.moneda1 == "Yen_Jpy")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *144.15);
+		}
+		else if ((this.moneda == "Libra_Gbp") &&  (this.moneda1 == "Won_Krw")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *1398.50);
+		}
+		return (String.valueOf(valor));
+		}
+	
+	@Override
+	public String convertirYen() {
+		if ((this.moneda == "Yen_Jpy") &&  (this.moneda1 == "Peso_Mx")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor * 0.13);
+		}
+		else if ((this.moneda == "Yen_Jpy") &&  (this.moneda1 == "Dolar_Us")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.0073);
+		}
+		else if ((this.moneda == "Yen_Jpy") &&  (this.moneda1 == "Euro_Eur")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.069);
+		}
+		else if ((this.moneda == "Yen_Jpy") &&  (this.moneda1 == "Libra_Gbp")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.061);
+		}
+		else if ((this.moneda == "Yen_Jpy") &&  (this.moneda1 == "Won_Krw")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *9.70);
+		}
+		return (String.valueOf(valor));
+	}
+
+	@Override
+	public String convertirWon() {
+		if ((this.moneda == "Won_Krw") &&  (this.moneda1 == "Peso_Mx")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor * 0.14);
+		}
+		else if ((this.moneda == "Won_Krw") &&  (this.moneda1 == "Dolar_Us")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.0076);
+		}
+		else if ((this.moneda == "Won_Krw") &&  (this.moneda1 == "Euro_Eur")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.0072);
+		}
+		else if ((this.moneda == "Won_Krw") &&  (this.moneda1 == "Libra_Gbp")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.00063);
+		}
+		else if ((this.moneda == "Won_Krw") &&  (this.moneda1 == "Yen_Jpy")){
+			valor = Integer.parseInt(entrdaUsuario);
+			valor = (double) (valor *0.10);
+		}
+		return (String.valueOf(valor));
+	}
+	
+}

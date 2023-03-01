@@ -1,0 +1,8 @@
+
+public interface Conversor {
+	public String convertirDe();
+	
+	public void conveertirA();
+	
+	public void conversorException();
+}

@@ -1,0 +1,16 @@
+
+public class Monedas implements Conversor {
+
+	@Override
+	public void convertirDe() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void conveertirA() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

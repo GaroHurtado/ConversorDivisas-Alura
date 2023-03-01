@@ -1,0 +1,8 @@
+
+public interface Conversor {
+	public vid convertirDe();
+	
+	public void conveertirA();
+	
+	public void conversorException();
+}

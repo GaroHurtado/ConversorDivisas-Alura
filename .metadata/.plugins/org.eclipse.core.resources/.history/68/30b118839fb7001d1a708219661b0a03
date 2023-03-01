@@ -1,0 +1,5 @@
+
+@SuppressWarnings("serial")
+public class ConversionException extends RuntimeException {
+	supepr(message);
+}

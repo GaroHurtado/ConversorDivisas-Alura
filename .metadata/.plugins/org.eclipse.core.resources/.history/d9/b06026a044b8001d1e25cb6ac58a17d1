@@ -1,0 +1,196 @@
+import javax.swing.JOptionPane;
+
+
+public class Divisas extends prueba implements Conversor{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	public String convertirDe() {
+		
+		if(this.moneda == this.moneda1 ) {
+			conversorException();
+		}
+		else if (super.moneda == "Peso_Mx") {
+			convertirPeso();
+		}
+		else if (super.moneda == "Dolar_Us") {
+			convertirDollar();
+		}
+		else if (super.moneda == "Euro_Eur") {
+			convertirEuro();
+		}
+		else if (super.moneda == "Libra_Gbp") {
+			convertirLibras();
+		}
+		else if (super.moneda == "Yen_Jpy") {
+			convertirYen();
+		}
+		else if (super.moneda == "Won_Krw") {
+			convertirWon();
+		}
+		return ("La cantidad es igual a: " + String.valueOf(valor));
+		
+	}
+	
+	
+
+
+	@Override
+	public void conversorException() {
+		JOptionPane.showMessageDialog(null, "Divisas similares");
+		JOptionPane.showMessageDialog(null, "Porfavor Seleccione Una Divisa Diferente");
+	}
+
+	@Override
+	public String convertirPeso() {
+		if ((super.moneda == "Peso_Mx") &&  (super.moneda1 == "Dolar_Us")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *0.055);
+		}
+		else if ((super.moneda == "Peso_Mx") &&  (super.moneda1 == "Euro_Eur")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *0.052);
+		}
+		else if ((super.moneda == "Peso_Mx") &&  (super.moneda1 == "Libra_Gbp")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *0.045);
+		}
+		else if ((super.moneda == "Peso_Mx") &&  (super.moneda1 == "Yen_Jpy")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *7.44);
+		}
+		else if ((super.moneda == "Peso_Mx") &&  (super.moneda1 == "Won_Krw")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (valor *72.30);
+		}
+		return ("La cantidad es igual a: " + String.valueOf(super.valor));
+	}
+
+	@Override
+	public String convertirDollar() {
+		if ((super.moneda == "Dolar_Us") &&  (super.moneda1 == "Peso_Mx")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor * 18.30);
+		}
+		else if ((super.moneda == "Dolar_Us") &&  (super.moneda1 == "Euro_Eur")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *0.95);
+		}
+		else if ((super.moneda == "Dolar_Us") &&  (super.moneda1 == "Libra_Gbp")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (valor *0.83);
+		}
+		else if ((super.moneda == "Dolar_Us") &&  (super.moneda1 == "Yen_Jpy")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *136.27);
+		}
+		else if ((super.moneda == "Dolar_Us") &&  (super.moneda1 == "Won_Krw")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (valor *1322.0);
+		}
+		return (String.valueOf(super.valor));
+		}
+
+	@Override
+	public String convertirEuro() {
+		if ((super.moneda == "Euro_Eur") &&  (super.moneda1 == "Peso_Mx")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor * 19.36);
+		}
+		else if ((super.moneda == "Euro_Eur") &&  (super.moneda1 == "Dolar_Us")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *1.06);
+		}
+		else if ((super.moneda == "Euro_Eur") &&  (super.moneda1 == "Libra_Gbp")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *0.88);
+		}
+		else if ((super.moneda == "Euro_Eur") &&  (super.moneda1 == "Yen_Jpy")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *144.15);
+		}
+		else if ((super.moneda == "Euro_Eur") &&  (super.moneda1 == "Won_Krw")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *1398.50);
+		}
+		return (String.valueOf(super.valor));
+		}
+	
+	@Override
+	public String convertirLibras() {
+		if ((super.moneda == "Libra_Gbp") &&  (super.moneda1 == "Peso_Mx")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor * 22.03);
+		}
+		else if ((super.moneda == "Libra_Gbp") &&  (super.moneda1 == "Dolar_Us")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *1.20);
+		}
+		else if ((super.moneda == "Libra_Gbp") &&  (super.moneda1 == "Euro_Eur")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *1.14);
+		}
+		else if ((super.moneda == "Libra_Gbp") &&  (super.moneda1 == "Yen_Jpy")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *144.15);
+		}
+		else if ((super.moneda == "Libra_Gbp") &&  (super.moneda1 == "Won_Krw")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *1398.50);
+		}
+		return (String.valueOf(super.valor));
+		}
+	
+	@Override
+	public String convertirYen() {
+		if ((super.moneda == "Yen_Jpy") &&  (super.moneda1 == "Peso_Mx")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor * 0.13);
+		}
+		else if ((super.moneda == "Yen_Jpy") &&  (super.moneda1 == "Dolar_Us")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *0.0073);
+		}
+		else if ((super.moneda == "Yen_Jpy") &&  (super.moneda1 == "Euro_Eur")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *0.069);
+		}
+		else if ((super.moneda == "Yen_Jpy") &&  (super.moneda1 == "Libra_Gbp")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *0.061);
+		}
+		else if ((super.moneda == "Yen_Jpy") &&  (super.moneda1 == "Won_Krw")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *9.70);
+		}
+		return (String.valueOf(super.valor));
+	}
+
+	@Override
+	public String convertirWon() {
+		if ((super.moneda == "Won_Krw") &&  (super.moneda1 == "Peso_Mx")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor * 0.14);
+		}
+		else if ((super.moneda == "Won_Krw") &&  (super.moneda1 == "Dolar_Us")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *0.0076);
+		}
+		else if ((super.moneda == "Won_Krw") &&  (super.moneda1 == "Euro_Eur")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *0.0072);
+		}
+		else if ((this.moneda == "Won_Krw") &&  (this.moneda1 == "Libra_Gbp")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor * 0.0063);
+		}
+		else if ((super.moneda == "Won_Krw") &&  (super.moneda1 == "Yen_Jpy")){
+			super.valor = Integer.parseInt(entrdaUsuario);
+			super.valor = (double) (super.valor *0.10);
+		}
+		return (String.valueOf(super.valor));
+	}
+}

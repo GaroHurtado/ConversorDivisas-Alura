@@ -1,0 +1,4 @@
+
+public enum Moneda {
+	PESO_MX, DOLAR_US, EUROS_EUR, LIBRA_GBP, YEN_JPY, WON_KRW;
+}

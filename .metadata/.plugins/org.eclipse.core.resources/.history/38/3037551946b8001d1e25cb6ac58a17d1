@@ -1,0 +1,4 @@
+
+public enum nombresMonedas {
+	Peso_MX, Dolar_Us;
+}
